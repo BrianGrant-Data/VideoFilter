@@ -1,5 +1,6 @@
 # General
-- https://codingsight.com/git-branching-naming-convention-best-practices/
+- [Git Branch Naming conventions](https://codingsight.com/git-branching-naming-convention-best-practices/)
+- [removing this repo from the campus fork](https://stackoverflow.com/questions/16052477/delete-fork-dependency-of-a-github-repository)
 
 # Visual Studio Code's IDE
 - https://code.visualstudio.com/docs/python/python-tutorial
