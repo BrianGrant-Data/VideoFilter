@@ -15,7 +15,8 @@ I will be studying image recognition and how to encode image data so that it can
 # Proposed Deliverables
 
 I request that I use the following deliverables to track my progress:
-- Find dataset to use
+- Follow tutorials to put a bounding box on a live feed
+- Find dataset to use for face recognition
 - Encrypt the dataset and make a Google Colab that documents the process.
 - Make a Google Colab that documents how I trained a Convolutional Neural Network (CNN) to recognize people.
 - Overlap CNN on live stream of a screen

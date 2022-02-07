@@ -49,6 +49,3 @@ Each project will have its own unique deliverables that will be negotiated in th
 | 9         | Post final version of project post                                    | Week 11    |
 | 10        | Present at R&CW conference                                            | Week 12    |
 | 11        | Finish all materials and review blog with instructor                  | Week 14    |
-
-## Running this Program 
-You can 

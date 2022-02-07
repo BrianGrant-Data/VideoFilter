@@ -1,3 +1,12 @@
+# General
+- https://codingsight.com/git-branching-naming-convention-best-practices/
+
+# Visual Studio Code's IDE
+- https://code.visualstudio.com/docs/python/python-tutorial
+
+# OpenCV documents
+- https://docs.opencv.org/4.5.5/
+
 # Full body detection 
 - https://stackoverflow.com/questions/34871294/full-body-detection-and-tracking-using-opencvpython-2-7
 
