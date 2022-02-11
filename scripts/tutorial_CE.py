@@ -1,5 +1,6 @@
 # CodingEntrepreneurs OpenCV Tutorial
 # https://www.youtube.com/playlist?list=PLEsfXFp6DpzRyxnU-vfs3vk-61Wpt7bOS
+
 import numpy as np
 import cv2
 
@@ -16,9 +17,12 @@ def t1_webcam_display(): # https://www.youtube.com/watch?v=YY9f-6u2Q_c&list=PLEs
         # Our operations on the frame come here
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     
-        # Display the resulting frame
+        # Display the unaltered frame
         cv2.imshow('frame',frame) # Displays the frame from cap.read()
+        
+        # Display the altered frame
         cv2.imshow('gray',gray) # Displays the frame after we altered it
+        
         if cv2.waitKey(20) & 0xFF == ord('q'): # press q in the image to exit the image
             break # Without these two lines, each time you close the image it will create another one and the loop will continue.
 
@@ -56,15 +60,17 @@ def t2_rescaling(): # https://www.youtube.com/watch?v=y76C3P20rwc&list=PLEsfXFp6
         cap.set(3, 640)
         cap.set(4, 480)
 
-
-    make_480p()
-
     while(True):
         # Capture frame-by-frame
         ret, frame = cap.read() # This is reading every frame the webcam captures
-    
-        # Display the resulting frame
+
+        # Display the unaltered frame
         cv2.imshow('frame',frame) # Displays the frame from cap.read()
+
+        # Display the altered frame
+        frame_alt = rescale_frame(frame, percent=30)
+        cv2.imshow('frame_alt', frame_alt) # Displays the frame from cap.read()
+        
         if cv2.waitKey(20) & 0xFF == ord('q'): # press q in the image to exit the image
             break # Without these two lines, each time you close the image it will create another one and the loop will continue.
 
