@@ -2,6 +2,9 @@
 - [Git Branch Naming conventions](https://codingsight.com/git-branching-naming-convention-best-practices/)
 - [removing this repo from the campus fork](https://stackoverflow.com/questions/16052477/delete-fork-dependency-of-a-github-repository)
 
+# Google Colab
+- [Screenshots in Google Colab](https://stackoverflow.com/questions/64672576/how-can-i-take-a-screenshot-in-google-colab-using-pil)
+
 # Visual Studio Code's IDE
 - https://code.visualstudio.com/docs/python/python-tutorial
 
