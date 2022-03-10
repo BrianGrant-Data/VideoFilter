@@ -10,11 +10,8 @@ def tutorial_facemesh():
 
     # Face mesh detection
     mp_face_mesh = mp.solutions.face_mesh
-
     mp_drawing = mp.solutions.drawing_utils
     drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
-
-
 
     cap = cv2.VideoCapture(0)
 
@@ -59,18 +56,17 @@ def tutorial_facemesh():
                         connection_drawing_spec=drawing_spec)
 
 
-
+            # Track time
             end = time.time()
             totalTime = end - start
-
             fps = 1 / totalTime
 
             cv2.putText(image, f'FPS: {int(fps)}', (20,70), cv2.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
 
+            # Display image
             cv2.imshow('MediaPipe FaceMesh', image)
 
-
-
+            # Exit 
             if cv2.waitKey(5) & 0xFF == ord('q'): # hit q to escape
                 break
 
@@ -84,9 +80,8 @@ def tutorial_facedetection():
 
     # Face mesh detection
     mp_face_detection = mp.solutions.face_detection
-    
     mp_drawing = mp.solutions.drawing_utils
-    drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
+    # drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
     # For webcam input:
     cap = cv2.VideoCapture(0)
@@ -139,19 +134,15 @@ def main():
     import numpy as np
     import time
     import mediapipe as mp
-    import mss
-    import urllib
-    import io
     from PIL import Image, ImageGrab
     import pyautogui
     
     # Face mesh detection
     mp_face_detection = mp.solutions.face_detection
-    
     mp_drawing = mp.solutions.drawing_utils
-    drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
+    # drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
-    with mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.5) as face_detection:
+    with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5) as face_detection: # VITAL model_selection=1 because that is for faraway images and 0 is for close
         while(True):
             start = time.time()
 
@@ -159,12 +150,7 @@ def main():
             image = pyautogui.screenshot() # or screenshot = ImageGrab.grab()
             # # screenshot = ImageGrab.grab()
             image = np.array(image)
-            image = cv.cvtColor(image, cv.COLOR_RGB2BGR) # np.array changes the color scheme to RGB but cv2 uses BGR and the colors will look weird if you don't switch it
-            
-            # To improve performance, optionally mark the image as not writeable to
-            # pass by reference.
-            image.flags.writeable = False
-            image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+            image.flags.writeable = False # To improve performance, optionally mark the image as not writeable to pass by reference.
             results = face_detection.process(image)
 
             # Draw the face detection annotations on the image.
@@ -173,7 +159,6 @@ def main():
             if results.detections:
                 for detection in results.detections:
                     mp_drawing.draw_detection(image, detection)
-
 
             # Display Time
             end = time.time()
