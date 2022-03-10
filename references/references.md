@@ -8,6 +8,10 @@
 # Visual Studio Code's IDE
 - https://code.visualstudio.com/docs/python/python-tutorial
 
+# MediaPipe
+- [Face detection](https://google.github.io/mediapipe/solutions/face_detection)
+- [ore Details](https://towardsdatascience.com/write-a-few-lines-of-code-and-detect-faces-draw-landmarks-from-complex-images-mediapipe-932f07566d11)
+
 # OpenCV documents
 - https://docs.opencv.org/4.5.5/
 
