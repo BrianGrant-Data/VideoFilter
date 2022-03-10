@@ -2,6 +2,7 @@
 import cv2 as cv
 import numpy as np
 import time
+import mediapipe as mp
 import mss
 import urllib
 import io
@@ -26,24 +27,6 @@ def main(monitor_number):
         # # screenshot = ImageGrab.grab()
         screenshot = np.array(screenshot)
         screenshot = cv.cvtColor(screenshot, cv.COLOR_RGB2BGR) # np.array changes the color scheme to RGB but cv2 uses BGR and the colors will look weird if you don't switch it
-        
-        # with mss.mss() as sct:
-        #     # Get information of monitor 2
-        #     mon = sct.monitors[monitor_number]
-
-        #     # The screen part to capture
-        #     monitor = {
-        #         "top": mon["top"],
-        #         "left": mon["left"],
-        #         "width": mon["width"],
-        #         "height": mon["height"],
-        #         "mon": monitor_number,
-        #     }
-        #     output = "sct-mon{mon}_{top}x{left}_{width}x{height}.png".format(**monitor)
-
-        #     # Grab the data
-        #     sct_img = sct.grab(monitor)
-        #     screenshot = np.array(sct_img) # BGR Image
 
         # Capture frame-by-frame
         gray  = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
@@ -61,15 +44,8 @@ def main(monitor_number):
             end_cord_y = y + h
             cv.rectangle(screenshot, (x, y), (end_cord_x, end_cord_y), color, stroke)
 
-            # # Search for features that could be on a face
-            # eyes = eye_cascade.detectMultiScale(roi_gray)
-            # for (ex,ey,ew,eh) in eyes:
-            # 	cv.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
-            
-            # smile = smile_cascade.detectMultiScale(roi_gray)
-            # for (sx,sy,sw,sh) in smile:
-            # 	cv.rectangle(roi_color,(sx,sy),(sx+sw,sy+sh),(0,255,0),2)
 
+        # Display Time
         end = time.time()
         totalTime = end - start
 
