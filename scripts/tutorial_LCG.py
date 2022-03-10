@@ -6,7 +6,7 @@ import numpy as np
 import urllib
 import io
 import sys
-from time import time
+import time
 from PIL import Image, ImageGrab
 import pyautogui
 import win32gui, win32ui, win32con
@@ -183,8 +183,8 @@ def tutorial4(method = ["pyauto", "ImageGrab", "wincap"], screen_name = "tutoria
         sys.exit("Method not in methods")
     
     # %% displaying a screen
-    loop_time = time()
     while(True):
+        start = time.time()
         if method == "pyauto":
             screenshot = pyautogui.screenshot() # or screenshot = ImageGrab.grab()
         elif method == "ImageGrab":
@@ -196,20 +196,26 @@ def tutorial4(method = ["pyauto", "ImageGrab", "wincap"], screen_name = "tutoria
             
         screenshot = np.array(screenshot)
         screenshot = cv.cvtColor(screenshot, cv.COLOR_RGB2BGR) # np.array changes the color scheme to RGB but cv2 uses BGR and the colors will look weird if you don't switch it
+        
+        # Display Time
+        end = time.time()
+        totalTime = end - start
+        fps = 1 / totalTime
 
+        cv.putText(screenshot, f'FPS: {int(fps)}', (20,70), cv.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
         cv.imshow('Computer Vision', screenshot)
 
-        # Display frames per second (FPS)
-        print('FPS {}'.format(round(1/(time() - loop_time)), 2)) # goal is 24 fps minimum. time()-loop_time returns the seconds per frame (SPF). 1/SPF returns the frames per second (FPS)
-        loop_time = time()
+        # Display Image
+        cv.imshow('Computer Vision', screenshot)
 
+        # Quit Window
         if cv.waitKey(20) & 0xFF == ord('q'):
-            # screenshot.release()
+            screenshot.release()
             cv.destroyAllWindows()
             break
 
-    # When everything done, release the capture
     
-tutorial4("pyauto")
+tutorial4("ImageGrab")
+
 # tutorial4("wincap", "Real-time Object Detection - OpenCV Object Detection in Games #5 - YouTube - Google Chrome")
 # WindowCapture.list_window_names()
