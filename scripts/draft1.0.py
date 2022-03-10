@@ -1,6 +1,7 @@
 # Import Libraries
 import cv2 as cv
 import numpy as np
+import time
 import mss
 import urllib
 import io
@@ -10,15 +11,17 @@ import pyautogui
 # Cascade Paths
 cascade_path = "C:/Users/bag20/projects/video_filter/.venv/lib/site-packages/cv2/data/" # to find your openCV package location type 'python' in the terinal and then type 'print(cv2.__file__)' in the terminal. Exit py typing 'exit()'.
 face_cascade = cv.CascadeClassifier(cascade_path+'haarcascade_frontalface_alt2.xml')
-eye_cascade = cv.CascadeClassifier(cascade_path+'haarcascade_eye.xml')
-smile_cascade = cv.CascadeClassifier(cascade_path+'yyhaarcascade_smile.xml')
-uprbody_cascade = cv.CascadeClassifier(cascade_path+'haarcascade_upperbody.xml')
-profile_cascade = cv.CascadeClassifier(cascade_path+'haarcascade_profileface.xml')
+# eye_cascade = cv.CascadeClassifier(cascade_path+'haarcascade_eye.xml')
+# smile_cascade = cv.CascadeClassifier(cascade_path+'yyhaarcascade_smile.xml')
+# uprbody_cascade = cv.CascadeClassifier(cascade_path+'haarcascade_upperbody.xml')
+# profile_cascade = cv.CascadeClassifier(cascade_path+'haarcascade_profileface.xml')
 
 # Main
 def main(monitor_number):
     # display screen
     while(True):
+        start = time.time()
+
         screenshot = pyautogui.screenshot() # or screenshot = ImageGrab.grab()
         # # screenshot = ImageGrab.grab()
         screenshot = np.array(screenshot)
@@ -66,6 +69,14 @@ def main(monitor_number):
             # smile = smile_cascade.detectMultiScale(roi_gray)
             # for (sx,sy,sw,sh) in smile:
             # 	cv.rectangle(roi_color,(sx,sy),(sx+sw,sy+sh),(0,255,0),2)
+
+        end = time.time()
+        totalTime = end - start
+
+        fps = 1 / totalTime
+
+        cv.putText(screenshot, f'FPS: {int(fps)}', (20,70), cv.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
+        
         cv.imshow('Computer Vision', screenshot)
         
     # exit window
