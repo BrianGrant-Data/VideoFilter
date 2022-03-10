@@ -44,3 +44,5 @@ vignettes/*.pdf
 # Python Virtual Environment
 .venv/*
 
+# Personal Documents
+.documents/proposal.md
