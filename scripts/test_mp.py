@@ -142,7 +142,7 @@ def main():
     mp_drawing = mp.solutions.drawing_utils
     # drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
-    with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5) as face_detection: # VITAL model_selection=1 because that is for faraway images and 0 is for close
+    with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5) as face_detection: # VITAL model_selection=1 because that is for close and far images and 0 is for close
         while(True):
             start = time.time()
 
