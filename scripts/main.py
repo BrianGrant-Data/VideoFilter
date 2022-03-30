@@ -1,45 +1,53 @@
 # Import Libraries
 import cv2 as cv
 import numpy as np
-from PIL import Image, ImageGrab
-import pyautogui
-
-# Cascade Paths
-cascade_path = "C:/Users/bag20/projects/video_filter/.venv/lib/site-packages/cv2/data/" # to find your openCV package location type 'python' in the terinal and then type 'print(cv2.__file__)' in the terminal. Exit py typing 'exit()'.
-face_cascade = cv.CascadeClassifier(cascade_path+'haarcascade_frontalface_alt2.xml')
+import time
+import mediapipe as mp
+from PIL import ImageGrab
+    
 
 def main():
-    # display screen
-    while(True):
-        screenshot = pyautogui.screenshot() # or screenshot = ImageGrab.grab()
-        # # screenshot = ImageGrab.grab()
-        screenshot = np.array(screenshot)
-        screenshot = cv.cvtColor(screenshot, cv.COLOR_RGB2BGR) # np.array changes the color scheme to RGB but cv2 uses BGR and the colors will look weird if you don't switch it
-        
-        # Capture frame-by-frame
-        gray  = cv.cvtColor(screenshot, cv.COLOR_BGR2GRAY)
-        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.5, minNeighbors=5)
-  
-        for (x, y, w, h) in faces:
-            #print(x,y,w,h)
-            roi_gray = gray[y:y+h, x:x+w] #(ycord_start, ycord_end)
-            roi_color = screenshot[y:y+h, x:x+w]
+    # Face mesh detection
+    mp_face_detection = mp.solutions.face_detection
+    mp_drawing = mp.solutions.drawing_utils
 
-            # Draw Bounding Box
-            color = (255, 0, 0) #BGR 0-255 
-            stroke = 2
-            end_cord_x = x + w
-            end_cord_y = y + h
-            cv.rectangle(screenshot, (x, y), (end_cord_x, end_cord_y), color, stroke)
+    print(mp_face_detection.summary())
+    print("")
+    print(mp_drawing.summary())
+    # drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
 
-        cv.imshow('Computer Vision', screenshot)
+    with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.3) as face_detection: # VITAL model_selection=1 because that is for close and far images and 0 is for close
+        while(True):
+            start = time.time()
+
+            # Capture frame-by-frame
+            image = ImageGrab.grab()
+            image = np.array(image)
+            image.flags.writeable = False # To improve performance, optionally mark the image as not writeable to speed up face_detection.process(image).
+            results = face_detection.process(image)
+
+            # Draw the face detection annotations on the image.
+            image.flags.writeable = True # return to markable for changing the image
+            image = cv.cvtColor(image, cv.COLOR_RGB2BGR)
+            if results.detections:
+                for detection in results.detections:
+                    mp_drawing.draw_detection(image, detection)
+
+            # Display Time
+            end = time.time()
+            totalTime = end - start
+            fps = 1 / totalTime
+
+            cv.putText(image, f'FPS: {int(fps)}', (20,70), cv.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
+            cv.imshow('Computer Vision', image)
+            
+            # exit window
+            if cv.waitKey(20) & 0xFF == ord('q'): #wait 20 milliseconds and if 'q' is pressed break the loop
+                cv.destroyAllWindows()
+                break
         
-    # exit window
-        if cv.waitKey(20) & 0xFF == ord('q'):
-            cv.destroyAllWindows()
-            break
     # when everything is done, release the capture
-    screenshot.release()
+    image.release()
     
 if __name__ == "__main__":
     main()
