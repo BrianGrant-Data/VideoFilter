@@ -11,11 +11,6 @@ def main():
     mp_face_detection = mp.solutions.face_detection
     mp_drawing = mp.solutions.drawing_utils
 
-    print(mp_face_detection.summary())
-    print("")
-    print(mp_drawing.summary())
-    # drawing_spec = mp_drawing.DrawingSpec(thickness=1, circle_radius=1)
-
     with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.3) as face_detection: # VITAL model_selection=1 because that is for close and far images and 0 is for close
         while(True):
             start = time.time()
