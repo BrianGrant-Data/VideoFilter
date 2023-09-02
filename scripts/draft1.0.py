@@ -24,7 +24,6 @@ def main(monitor_number):
         start = time.time()
 
         screenshot = pyautogui.screenshot() # or screenshot = ImageGrab.grab()
-        # # screenshot = ImageGrab.grab()
         screenshot = np.array(screenshot)
         screenshot = cv.cvtColor(screenshot, cv.COLOR_RGB2BGR) # np.array changes the color scheme to RGB but cv2 uses BGR and the colors will look weird if you don't switch it
 
