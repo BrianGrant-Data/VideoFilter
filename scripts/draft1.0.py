@@ -44,7 +44,7 @@ def main(monitor_number):
             cv.rectangle(screenshot, (x, y), (end_cord_x, end_cord_y), color, stroke)
 
 
-        # Display Time
+        # Display Frames Per Second (FPS)
         end = time.time()
         totalTime = end - start
 
