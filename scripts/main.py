@@ -4,22 +4,33 @@ import numpy as np
 import time
 import mediapipe as mp
 from PIL import ImageGrab
-    
+import requests
+
+# r = requests.get()
+# r.status_code
+"""
+This is from a tutorial on setting up a dockerfile. 
+[ ] delete after trial run
+"""
 
 def main():
-    # Face mesh detection
+    # Load face detection classifier
     mp_face_detection = mp.solutions.face_detection
     mp_drawing = mp.solutions.drawing_utils
 
-    with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.3) as face_detection: # VITAL model_selection=1 because that is for close and far images and 0 is for close
+    with mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5) as face_detection: # VITAL model_selection=1 because that is for close and far images and 0 is for close
         while(True):
             start = time.time()
 
             # Capture frame-by-frame
             image = ImageGrab.grab()
+
+            # Prep the data
             image = np.array(image)
             image.flags.writeable = False # To improve performance, optionally mark the image as not writeable to speed up face_detection.process(image).
-            results = face_detection.process(image)
+            
+            # Return the regions of interest
+            results = face_detection.process(image) 
 
             # Draw the face detection annotations on the image.
             image.flags.writeable = True # return to markable for changing the image
@@ -34,6 +45,9 @@ def main():
             fps = 1 / totalTime
 
             cv.putText(image, f'FPS: {int(fps)}', (20,70), cv.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
+
+            # Display the image
+            image = cv.resize(image, (1280, 720)) # Resize image # altered for first screen's aspect ration
             cv.imshow('Computer Vision', image)
             
             # exit window

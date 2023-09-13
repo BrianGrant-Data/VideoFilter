@@ -170,6 +170,8 @@ def main():
             fps = 1 / totalTime
 
             cv.putText(image, f'FPS: {int(fps)}', (20,70), cv.FONT_HERSHEY_SIMPLEX, 1.5, (0,255,0), 2)
+            #image = cv.resize(image, (1280, 1024)) # Resize image # altered for seconds screen's size
+            image = cv.resize(image, (1280, 720)) # Resize image # altered for first screen's aspect ration
             cv.imshow('Computer Vision', image)
             
             # exit window
