@@ -37,6 +37,26 @@ You do not need to include the standard deliverables that all projects are requi
 * Explain the details of the .... domain to motivate my problem.
 * Learn and implement Plotly to have interactive graphics for my results graphics
 
+### Project Related Activites 
+- Coding 
+    - Main.py
+    - Decoding
+- Research
+    - Tutorials
+    - Reading Articles
+    - *Machine Learning*
+    - Computer Vision
+- Writing
+    - Blog Posts
+    - Conference Presentation Abstract
+    - Resume
+- Planning
+- Flesh out Github
+- Contact VidAngel
+    - Jonathon Edevold, Current Senior Data Scientist at Angel Studios
+    - Alan Walton, Senior Data Scientist Feb 2018 - Dec 2019
+
+
 ### Faculty Request
 
 In this section list three faculty members that you think could support your project. Note your preferred faculty member and provide a short justification for requesting that faculty mentor. 

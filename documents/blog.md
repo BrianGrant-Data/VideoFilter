@@ -2,7 +2,7 @@ You will be responsible for creating a public blog about your senior project and
 
 ## Post ideas
 
-I would recommend reading posts from the internet of others that post about data science work.  I have enjoyed the data science articles from medium.com.  The posts do not need to be long, but they should be clear and provide insight.  You could write posts on the following ideas about your project.
+I would recommend reading posts from the internet of others that post about data science work. I have enjoyed the data science articles from medium.com. The posts do not need to be long, but they should be clear and provide insight. You could write posts on the following ideas about your project.
 
 - Using API's in R or Python
 - How to rip data from a website
