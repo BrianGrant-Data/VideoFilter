@@ -10,13 +10,13 @@ To protect against indecency, I will simply train the program to take a video fe
 
 # Domain to Investigate
 
-I will be studying image recognition and how to encode image data so that it can be used for training but can't be viewed as an image such as Facebook has done. I will need to learn to feed an algorithm live data, run it through an image recognition program, edit the image, and then display the image probably with the OBS Studio software program. Before that, I'll need to find pre-gathered data, encrypt it for privacy and security, and train the algorithm with the same. 
+I will be studying image recognition and how to encode image data so that it can be used for training but can't be viewed as an image as Facebook has done. I will need to learn to feed an algorithm live data, run it through an image recognition program, edit the image, and then display the image probably with the OBS Studio software program. Before that, I'll need to find pre-gathered data, encrypt it for privacy and security, and train the algorithm with the same. 
 
 # Proposed Deliverables
 
 I request that I use the following deliverables to track my progress:
 - Follow tutorials to put a bounding box on a live feed
-- Find dataset to use for face recognition
+- Find a dataset to use for face recognition
 - Encrypt the dataset and make a Google Colab that documents the process.
 - Make a Google Colab that documents how I trained a Convolutional Neural Network (CNN) to recognize people.
 - Overlap CNN on live stream of a screen
@@ -26,5 +26,5 @@ I request that I use the following deliverables to track my progress:
 
 I will pass on requesting particular faculty members to assist me for the time being.
 
-## Possibiities (and people to ask for references)
+## Possibilities (and people to ask for references)
 - Brother Chilton, has done a little with OpenCV
