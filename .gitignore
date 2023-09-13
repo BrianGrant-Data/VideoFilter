@@ -47,5 +47,6 @@ vignettes/*.pdf
 # Personal Documents
 .documents/proposal.md
 .documents/seniorproject-proposal-DRAFT.md
-.documents/RCW Conference Oral Presentations Session 1 - Speaker Brian Grant.mp4
-.documents/RCW Conference Oral Presentations Session 1.mp4
+
+# Recordings
+*.mp4
