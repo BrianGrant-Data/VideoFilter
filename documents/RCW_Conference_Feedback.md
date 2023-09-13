@@ -22,7 +22,7 @@ The scoring is broken down as the following:
 - Reflection/Self-Assessment: 3/2
 
 
-## Overall impression/COMMENTS:
+## Overall impression/COMMENTS
 
 Great job!
 Brian has a great project that he can go forward with. He is showing a passion for learning and researching more.
