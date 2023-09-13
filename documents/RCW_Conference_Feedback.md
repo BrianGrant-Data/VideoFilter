@@ -8,9 +8,9 @@ Thank you for your participation in the Research and Creative Works Conference. 
 ## Scoring Rubric
 
 The scoring is broken down as the following: 
-3 (Outstanding) 
-2 (Meets Expectations) 
-1 (Sufficient, needs some improvement)
+- 3 (Outstanding) 
+- 2 (Meets Expectations) 
+- 1 (Sufficient, needs some improvement)
 
 
 ## Score
@@ -25,6 +25,9 @@ The scoring is broken down as the following:
 ## Overall impression/COMMENTS
 
 Great job!
+
 Brian has a great project that he can go forward with. He is showing a passion for learning and researching more.
+
 ---------------------------------------------------------------
+
 If you have questions or wish to provide feedback on your conference experience, please reply to rcw@byui.edu
