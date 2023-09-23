@@ -7,3 +7,6 @@
 
 # For More Information...
 See pitch.md for more information on the original scope of this project.
+
+# 2022 Presentation
+[![Video](https://img.youtube.com/vi/BMaMBvs8yzU/maxresdefault.jpg)](https://www.youtube.com/watch?v=BMaMBvs8yzU)
